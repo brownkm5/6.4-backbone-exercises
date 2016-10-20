@@ -10,7 +10,9 @@ var blogCollection = new models.BlogPostCollection();
 var blogForm = new views.blogFormView({collection: blogCollection});
 blogForm.setElement($('.blog-form')[0]);
 
-console.log(blogCollection);
+blogCollection.fetch().then(function(){
+  console.log(blogCollection);
+});
 
 });
 
