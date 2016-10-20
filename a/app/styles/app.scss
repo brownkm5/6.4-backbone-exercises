@@ -12,6 +12,25 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
+input{
+  margin-left: 50px;
+  border-radius: 3px;
+  width: 250px;
+}
+.post{
+  margin-right: 33px;
+  vertical-align: top;
+}
+.post-text{
+border-radius: 3px;
+margin-left: 50px;
+}
+
+.blog-button{
+  text-align: right;
+  margin-right: 14px;
+  .blog-post-button{
+    width: 150px;
+    height: 50px;
+  }
 }
