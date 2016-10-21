@@ -3,7 +3,7 @@ var Backbone = require('backbone');
 
 
 
-var blogFormView = Backbone.View.extend({
+var BlogFormView = Backbone.View.extend({
   events:{
     'submit': 'addPost'
   },
@@ -15,7 +15,10 @@ var blogFormView = Backbone.View.extend({
     var postText = $('.post-text').val();
 
     //create new post in the blogCollection with the values from the text boxes
-    this.collection.create({title: postTitle, text: postText});
+    this.collection.create({
+      title: postTitle,
+      text: postText
+    });
     console.log(this.collection);
 
     //clear the text from the text boxes
@@ -25,5 +28,5 @@ var blogFormView = Backbone.View.extend({
 });
 
 module.exports = {
-  blogFormView: blogFormView
+  BlogFormView: BlogFormView
 }

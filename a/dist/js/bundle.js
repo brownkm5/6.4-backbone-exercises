@@ -7,7 +7,7 @@ var models = require('./models/blog.js');
 $(function(){
 var blogCollection = new models.BlogPostCollection();
 
-var blogForm = new views.blogFormView({collection: blogCollection});
+var blogForm = new views.BlogFormView({collection: blogCollection});
 blogForm.setElement($('.blog-form')[0]);
 
 blogCollection.fetch().then(function(){
@@ -42,7 +42,7 @@ var Backbone = require('backbone');
 
 
 
-var blogFormView = Backbone.View.extend({
+var BlogFormView = Backbone.View.extend({
   events:{
     'submit': 'addPost'
   },
@@ -54,7 +54,10 @@ var blogFormView = Backbone.View.extend({
     var postText = $('.post-text').val();
 
     //create new post in the blogCollection with the values from the text boxes
-    this.collection.create({title: postTitle, text: postText});
+    this.collection.create({
+      title: postTitle,
+      text: postText
+    });
     console.log(this.collection);
 
     //clear the text from the text boxes
@@ -64,7 +67,7 @@ var blogFormView = Backbone.View.extend({
 });
 
 module.exports = {
-  blogFormView: blogFormView
+  BlogFormView: BlogFormView
 }
 
 },{"backbone":4,"jquery":5}],4:[function(require,module,exports){
