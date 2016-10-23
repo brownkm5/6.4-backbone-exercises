@@ -12,6 +12,23 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
+li{
+  list-style: none;
+}
+
+.bookmark-list-item{
+  height: 100%
+}
+
+.bookmark-form{
+  text-align: center;
+  input{
+    width: 200px;
+    display: inline-block;
+    margin-right: 30px;
+  }
+  button{
+    height: 34px;
+    margin-bottom: 2px;
+  }
 }

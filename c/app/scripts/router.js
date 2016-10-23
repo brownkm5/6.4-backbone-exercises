@@ -23,8 +23,9 @@ var BlogRouter = Backbone.Router.extend({
 
   addText: function(id){
     var post = this.collection;
-    console.log(this.models);
-    var postTextView = new view.BlogTextView({model: this.collection});
+    var blog = this.collection.get(id);
+
+    var postTextView = new view.BlogTextView({model: blog});
 
     $('.selected-blog').html(postTextView.render().el);
 

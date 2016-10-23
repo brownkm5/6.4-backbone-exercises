@@ -27,15 +27,22 @@ var selectedBlogTemplate = require('../../templates/selected-blog.hbs');
   var BlogTitleView = Backbone.View.extend({
     tagName: 'li',
     className: 'blog-title',
+    initialize: function(){
+      this.listenTo(this.model, 'destroy', this.remove);
+    },
+    events: {
+      'click .remove-blog': 'removeBlog'
+    },
     template: blogTitlesTemplate,
     render: function(){
       var context = this.model.toJSON();
       // console.log('context', context);
       var blogTitle = this.template(context);
       this.$el.html(blogTitle);
-
-
       return this;
+    },
+    removeBlog: function(){
+      this.model.destroy();
     }
   });
 
@@ -46,7 +53,7 @@ var selectedBlogTemplate = require('../../templates/selected-blog.hbs');
     template: selectedBlogTemplate,
     initialize: function(){
       //console.log('this', this.model);
-      this.listenTo(this.model, 'click', this.render);
+      this.listenTo(this.model, 'changed', this.render);
     },
     render: function(){
       var context = this.model.toJSON();
